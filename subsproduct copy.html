@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subscription Product</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
+<style>
+body{font-family:'Roboto', sans-serif;line-height: 1.42852;background-color: #f3f3f3;}
+strong{color:#ff8f00;}
+b{color:black;}
+.kk_bg_color{background-color:#fff}
+.kk_color_text{color:#787878 !important;}
+.kk-navbar-background{width: 100%;z-index: 99999;box-shadow: 0 0 16px 0 rgba(0,0,0,.34);position: fixed;}
+.product-sec-nav {overflow: hidden;padding: 6px 0px;}    
+.kk-nav-logo-1{margin: 0px 10px 0px 2px;display: inline-block;}
+.kk-nav-logo-2{display: inline-block;}
+.product-nav-small-btn{display:none;}
+.kk-product-ul{list-style-type: none;margin: 0;padding: 0;overflow: hidden;}
+.nav-bar-list{overflow: hidden;text-align: center;float: right;}
+ul.nav-bar-list>li{float: left;}
+.nav-top-list{display: block;text-align:center;padding: 12px 20px;text-decoration: none !important;font-size: 12px;}
+.kk-color-gradient{background: linear-gradient(135deg,#ff8f00 0,#fe5b06 100%);border-color: transparent;transition: .2s ease-in;}    
+.product-buy-button{display:inline-block;padding: 5px 8px;border-radius: 4px;font-size: 14px;margin: 6px 18px;}
+.product-buy-button a{padding: 0px;color:#fff;margin: 0px;text-decoration: none !important;font-weight:600;}   
+</style>
+<style>
+.kk_padding_def{padding: 16px 0px;}    
+.kk_sec_2{padding-top:80px;}
+.kk_product_title_head{font-size:26px;margin:5px 0px 13px 0px;font-weight:700;}
+.kk_font_600{font-weight:600;font-size:17px;}
+.kk_product_title{font-size:18px;margin:24px 0px 0px 0px;}
+.kk_features_head{padding:8px 0px;}
+.kk_orignal_price{text-decoration: line-through;font-size:18px;margin: 0px 2px;}
+.kk_discount_price{font-size:20px;}
+.product_sec2_ul{padding: 0px 0px 0px 28px !important;line-height: 2.4;}
+.kk_product_ul {list-style-type: none;margin: 0;padding: 0;overflow: hidden;}
+ul.product_sec2_ul li {position: relative;}
+.product_tick_color{ width: 0;height: 0;border: solid 9px green;border-radius: 9px;position: absolute;left:-27px;top: 8px;}
+span.product_tick_color::after{width: 4px;display: inline-block;position: absolute;transform: rotate(45deg);top: -5px;height: 8px;border: solid #fff;
+    border-width: 0 2px 2px 0;left: -2px;content: "";}
+.btn_join {
+    color: #fff;
+    font-size: 18px;
+    background: -moz-linear-gradient(-45deg,#ff8f00 0,#fe5b06 100%);
+    background: linear-gradient(135deg,#ff8f00 0,#fe5b06 100%);
+    height: 50px;
+    border-color: transparent;
+    transition: .2s ease-in;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: 280px;
+}
+.clear-mob-btn {
+    background-color: #efefef;
+    bottom:-62px;
+    transition: transform .3s ease-out;
+    display: flex;
+    width: 100%;
+    height:62px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
+    position: fixed;
+    left: 0;
+    z-index: 11;
+    transform: translateY(-100%);
+    padding:7px;
+}
+.kk_happy_usr,.kk_test,.kk_readtime{text-align: center;} 
+.product-buy-button:hover,.btn_join:hover {box-shadow: 0 1px 10px 1px #a9a9a9;}
+.subscription_button{margin: 34px 0px 12px 0px;}
+.kk_product_left{overflow: hidden;}
+.kk_product_right{text-align:center;padding:50px 0px;overflow: hidden;}
+.kk_review_pic{width:20%;overflow: hidden;}
+.kk_review_pic img{border-radius: 50%;border: 2px solid transparent;width:70px;height: auto;}
+.kk_review_cont{width: 80%;overflow: hidden;}
+.kk_review_wrap{overflow: hidden;padding: 8px 14px;}
+.kk_usr_wrap{padding:8px;}
+.fbutton.active{color:#ff8f00;}
+.payment_method_selection a:before {
+    content: "";
+    border: 1px solid #ff8f00;
+    background-color: transparent;
+}
+.payment_method_selection a:after,.payment_method_selection a:before {
+    position: absolute;
+    top: 0;
+    left:64px;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+.payment_method_selection a.active:after {
+    content: "✓";
+    border: 1px solid #ff8f00;
+    background-color: #ff8f00;
+    color: #fff;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 600;
+}
+</style>
+<style>
+ .kk_sec_3,.kk_sec_5{margin:12px 0px;padding:15px 0px;}
+ div.product_table_list {
+    overflow: hidden;
+    padding: 20px 0px;
+    border: 1px solid #dddddd;
+}
+.kk_product_font {
+    font-weight: 700;
+    font-size: 16px;
+}
+.kk_product_ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.product_material_list>li {
+     margin: 0px 5px;
+    padding: 8px 40px 8px 8px;
+    cursor:pointer;
+}
+.product_material_list>li>a {
+    position: relative;
+    text-decoration: none;
+    color: grey;
+    border-bottom: 2px solid transparent;
+    padding: 5px;
+}
+div.product_row {
+    border-bottom: 1px solid #dddddd;
+    overflow: hidden;
+    padding: 8px;
+}
+div.product_head_table {
+    display: block;
+    overflow: hidden;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+div.product_sub{width:29%; height: auto;padding:2px;}
+div.product_month{width:29%; height: auto;padding:2px;}
+div.product_category{width:26%; height: auto;word-wrap: break-word;padding:2px;}
+div.product_weektest{width:16%; height: auto;text-align: center;padding:2px;}
+.kk_download_plan{color:#ff8f00;text-align: center;}
+.kk_plan_btn{padding: 8px 48px;border-radius: 5px;border: 1px solid #ff8f00;background-color: #fff;}
+</style>
+<style>
+.kk_sec4_title{margin-left:10px;} 
+.kk_box_cat {
+    text-align: center;
+    height: 138px;
+    border: 1px solid rgba(239,239,239,1);
+    border-radius: 4px;
+    padding: 15px 6px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    transition: 2s ease-in-ease-out;
+}
+.kk_no_margin{font-size: 14px;margin: 0;}
+.kk_limited_off{text-align: center;margin-bottom: 32px;}
+.kk_card_wrap{padding:12px;border:1px solid #ff8f00;border-radius: 8px;margin: 16px 0px;}
+.kk_card_title{border-bottom: 1px solid #ff8f00;padding-bottom: 8px;}
+.kk_card_cont{padding:14px 0px;}
+</style>
+<style>
+.kk_star_review{padding: 0px 0px 8px 0px;color: #ff8f00;}
+ul.kk_contactSection {
+    padding-left: 0;
+    margin: 30px 0 10px;
+}
+ul.kk_contactSection li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 0;
+}
+ul.kk_contactSection li a {
+    border-radius: 25px;
+    display: inline-block;
+    line-height: 50px;
+    width: 230px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 15px 30px rgba(36,39,44,.08);
+}
+footer {
+    background-color: #101010;
+    padding: 10px 18px;
+    font-size: 12px;
+    overflow: hidden;
+}
+.float-right {
+    float: right;
+}
+.float-left,.kk_review_pic,.kk_review_cont,div.product_sub,div.product_month,div.product_category,div.product_weektest,.product_material_list>li{
+    float:left;
+}
+.kk_subscription span {
+    margin-right: 10px;
+    color: #b5b5b5;
+    font-weight: 600;
+}
+.kk_subscription a {
+    padding: 0 10px;
+}
+.product_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<style>
+    .kk_slider{overflow: hidden;width: 100%;box-sizing: border-box;position: relative;border-top: 0;margin-bottom: 10px;margin-top:10px;border:2px solid #fff;background-color: #fff;}
+        .kk_slider_blocks{width:180px;position: relative;margin-left: -1px;box-sizing: border-box;padding:12px;border-radius: 4px;color:#383838 !important;margin: 0 10px;text-align:left;border:1px solid #d4d4d4;display: inline-block;float:left;text-decoration: none !important;}
+        a.kk_slider_blocks:hover{background-color: #fff6eb;}.slider_title{margin-bottom:10px;}  
+        button.slick-arrow {
+                display: block;
+            font-size: 0;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            background: #ff8f00;
+            padding: 10px 8px;
+            border-radius: 4px;
+            color: #333;
+            box-shadow: 1.5px 2.598px 5px 0 rgba(120,120,120,.184);
+            width: auto;
+            margin-top: -30px;
+            cursor: pointer;
+            border: 0;
+            user-select: none;
+            outline: none;
+        }
+        .slick-prev {
+            left: 0;
+        }
+        .slick-prev:before {
+            content: "❮";
+            color: #333;
+            font-size: 30px;
+        }
+        .slick-next {
+            right: 0;
+        }
+        .slick-next:after {
+            content: "❯";
+            color: #333;
+            font-size: 30px;
+        }
+        .premium-pack {
+        overflow: hidden;
+        width: 100%;
+        padding: 0 44px!important;
+        position: relative;
+        box-sizing: border-box;
+        position: relative;
+        border-top: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border: 2px solid #fff;
+        background-color: #fff;
+    }
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0px !important;
+    }
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+    }
+    .slick-track:before, .slick-track:after {
+        display: table;
+        content: '';
+    }
+    @media only screen and (max-width: 768px)
+{
+        .kk-nav-logo-1 img{width: 26px !important;}
+        .kk-nav-logo-2 img{width: 78px !important;}
+        .product-nav-small-btn {
+        display: block;
+        color: #ff8f00;
+        float: right;
+        padding: 6px 12px;
+        overflow: auto;
+        position: relative;
+        }
+    .dropdown:hover .dropdown-content{display: block !important;}
+    .dropdown-content {
+        display: none;
+        position: fixed;
+        background-color: #ff8f00;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        right: 0px;
+        top:48px;
+        }
+    .dropdown-content>li {display: block;float: none !important;}
+    .dropdown-content>li>a:hover {background-color:#787878;color:#fff !important;}
+    .dropdown-content>li:last-child,.no_display,.nav-bar-list{display:none !important;}
+    .dropdown-content>li>a {color: #fff;text-decoration: none;display: block;}
+    .product_material_list>li{padding: 0px 6px;}
+    .kk_review_pic img {width:46px;}
+    .kk_review_wrap{padding:14px 14px;}
+    .kk_padding_def{padding: 0px;}
+    .kk_product_ul {margin-bottom:12px;}
+    div.product_row {padding:2px;}
+    .payment_method_selection a:after, .payment_method_selection a:before {display:none;}
+}
+@media only screen and (max-width: 760px){.kk_review_wrap{border-bottom: 1px solid #dddddd;}
+    .kk_usr_wrap{border-left:0px !important;}
+    .subscription_button_2{display: block !important;}
+    .mob-btn-sm {
+    display: block !important;
+    visibility: visible;
+    background: #efefef;
+    padding: 12px 10px;
+    will-change: transform;
+    margin-top: 12px;
+    transform: translateY(0);
+    position: relative;
+    }
+    .btn_join{
+        margin-bottom: 0px;
+        width:100%;
+    }
+    .subscription_button{display:none;}
+}
+@media only screen and (min-width: 768px)
+{
+.kk_card_title{height:52px;max-height:52px;}
+div.product_sub{width:15%;}
+div.product_month{width:15%;}
+div.product_category{width:52%;}
+div.product_weektest{width:18%;}
+}         
+
+</style>
+</head>
+<body>         
+    <!--sec-1  -->
+        <div class="kk-navbar-background kk_bg_color">
+            <div class="container">
+                <div class="row">    
+                        <div class="col-md-12 product-sec-nav">
+                                <a href="javascript:void(0);" class="kk-nav-logo-1"><img src="./img/goback.png" style="width:34px;height:auto;"></a>
+                                <a href="javascript:void(0);" class="kk-nav-logo-2"><img src="./img/kopykitab_logo.png" style="width:100px;height:auto;"></a>
+                                <span class="product-nav-small dropdown">
+                                        <div class="product-nav-small-btn"><button class="dropbtn">Menu</button></div>    
+                                    <ul class="nav-bar-list kk-product-ul dropdown-content nav-small">
+                                            <li><a class="nav-top-list kk_color_text" href="javascript:void(0);">Study Plan</a></li>
+                                            <li><a class="nav-top-list kk_color_text" href="javascript:void(0);">Categories</a></li>
+                                            <li><a class="nav-top-list kk_color_text" href="javascript:void(0);">Customer Reviews</a></li>
+                                            <li><a class="nav-top-list kk_color_text" href="javascript:void(0);">Need Help ?</a></li>
+                                            <li><div class="product-buy-button kk-color-gradient"><a href="javascript:void(0);">Buy now for &#x20b9; 399</a></div></li>  
+                                    </ul>
+                               </span>
+                        </div>
+                </div> 
+            </div>
+        </div>
+    <!-- sec-2 -->
+        <div class="kk_sec_2 kk_bg_color">
+            <div class="container">
+                <div class="row">
+                           
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="kk_product_left">
+                                <div><strong class="kk_font_600">goUnlimited</strong></div>
+                                <p class="kk_product_title_head"><b>Class 12 goUnlimited Ebooks Pack</b></p>
+                                <p class="kk_product_title"><strong>Up your preprations to the next level!</strong></p>
+                                <div class="kk_features_head">
+                                    Get <b>200 plus</b> topper recomended ebooks for 1 year at <b class="kk_orignal_price kk_color_text"> ₹3999</b><strong class="kk_discount_price">  ₹399 </strong> 
+                                </div>
+                                <ul class="product_sec2_ul kk_product_ul">
+                                        <li><span class="product_tick_color"></span>Get 200+ topper recommended ebooks</li>
+                                        <li><span class="product_tick_color"></span><strong> Take notes</strong> and<strong> highlight</strong> important text.</li>
+                                        <li><span class="product_tick_color"></span>Read in all devices: Desktop|Mobile|Tablet</li>
+                                        <li><span class="product_tick_color"></span>Free eReader app to read ebooks Offline.</li>
+                                </ul>
+                                <div class="subscription_button">
+                                        <button class="btn btn-default btn_join kk_cart_nocss" data-productid="21077">Go Unlimited for ₹399/-</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 no_display">
+                            <div class="kk_product_right">
+                                <img src="./img/banner_2.png" alt="bannerdiscount">
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div style="border-top:1px solid #dddddd;overflow:hidden;"></div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 kk_padding_def">
+                            <div class="kk_review_wrap">
+                                <div class="kk_review_pic">
+                                    <img src="./img/test-2.png">
+                                </div>
+                                <div class="kk_review_cont">
+                                    <div style="margin-bottom:8px;">Very nice app you can download the whole book instead of clicking pictures of the book you dont have.</div>
+                                    <div><strong>Paroma Banerjee</strong> <br/>class 10th</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-4 kk_padding_def">
+                            <div class="kk_usr_wrap" style=" border-right: 1px solid #dddddd;border-left: 1px solid #dddddd;">  
+                                <div class="kk_happy_usr">
+                                <img src="./img/happyuser.png">
+                                <div><strong>3 Million Plus</strong></div>
+                                <div>Happy Users</div>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-4 kk_padding_def">
+                                <div class="kk_usr_wrap" style="border-right: 1px solid #dddddd;">  
+                                        <div class="kk_test">
+                                        <img src="./img/testtaken.png">
+                                        <div><strong>9,00,000 Plus</strong></div>
+                                        <div>Test Taken</div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-4 kk_padding_def">
+                                <div class="kk_usr_wrap">  
+                                        <div class="kk_readtime">
+                                        <img src="./img/readtime.png">
+                                        <div><strong>100 Million minutes</strong></div>
+                                        <div>Of ebook read time.</div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>       
+
+            </div>
+        </div>
+    <!-- sec-3 -->
+        <div class="kk_sec_3 kk_bg_color">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-10 col-sm-12 col-xs-12">
+                        <div class="kk_sec3_wrap kk_color_text">
+                            <h3>Study Plan</h3>
+                            <p>A detailed study plan to excell in the upcomming exams.Currated by the toppers.Make the most of your goUnlimited package.</p>
+                            <div class="product_table_list">
+                                    <ul class="product_material_list kk_product_font kk_product_ul">
+                                        <li class="payment_method_selection"><a id="showall" class="active fbutton" href="javascript:void(0);">Board</a></li>
+                                        <li class="payment_method_selection"><a class="showSingle fbutton" target="1" href="javascript:void(0);">CBSE</a></li>
+                                        <li class="payment_method_selection"><a class="showSingle fbutton" target="2" href="javascript:void(0);">NCERT</a></li>
+                                        <li class="payment_method_selection"><a class="showSingle fbutton" target="3" href="javascript:void(0);">ICSE</a></li>
+                                    </ul>
+                            </div>
+                            <div class="product_table_wrap">
+                                <div class="product_head_table">
+                                        <div class="product_row">
+                                            <div class="product_sub">
+                                                <strong>Subjects</strong>
+                                            </div>
+                                            <div class="product_month">
+                                                <strong>Months</strong>
+                                            </div>
+                                            <div class="product_category">
+                                                <strong>Categories Covered</strong>
+                                            </div>
+                                            <div class="product_weektest">
+                                                <strong>Weekly Tests</strong>
+                                            </div>
+                                        </div>
+                                        <div  id="div1" class="product_row targetDiv">
+                                            <div class="product_sub">
+                                               <div>Physics</div>
+                                            </div>
+                                            <div class="product_month">
+                                                <div>Jan, Feb, Mar</div>
+                                            </div>
+                                            <div class="product_category">
+                                              <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                            </div>
+                                            <div class="product_weektest">
+                                                <div>2 Test</div>
+                                            </div>    
+                                        </div>
+                                        <div class="product_row">
+                                                <div class="product_sub">
+                                                   <div>Chemistry</div>
+                                                </div>
+                                                <div class="product_month">
+                                                    <div>Feb, Aug, Sept</div>
+                                                </div>
+                                                <div class="product_category">
+                                                  <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                </div>
+                                                <div class="product_weektest">
+                                                    <div>2 Test</div>
+                                                </div>    
+                                        </div>
+                                        <div id="div2" class="product_row targetDiv">
+                                                <div class="product_sub">
+                                                   <div>Mathematics</div>
+                                                </div>
+                                                <div class="product_month">
+                                                    <div>Jan, Feb, Mar</div>
+                                                </div>
+                                                <div class="product_category">
+                                                  <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                </div>
+                                                <div class="product_weektest">
+                                                    <div>2 Test</div>
+                                                </div>    
+                                        </div>
+                                        <div class="product_row">
+                                                <div class="product_sub">
+                                                   <div>Biology</div>
+                                                </div>
+                                                <div class="product_month">
+                                                    <div>Jan, Feb, Mar</div>
+                                                </div>
+                                                <div class="product_category">
+                                                  <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                </div>
+                                                <div class="product_weektest">
+                                                    <div>2 Test</div>
+                                                </div>    
+                                        </div>
+                                        <div class="product_row">
+                                                <div class="product_sub">
+                                                   <div>Computer Science</div>
+                                                </div>
+                                                <div class="product_month">
+                                                    <div>Nov, Dec, Oct</div>
+                                                </div>
+                                                <div class="product_category">
+                                                  <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                </div>
+                                                <div class="product_weektest">
+                                                    <div>2 Test</div>
+                                                </div>    
+                                        </div>
+                                        <div class="product_row">
+                                                <div class="product_sub">
+                                                   <div>Physics</div>
+                                                </div>
+                                                <div class="product_month">
+                                                    <div>Jan, Feb, Mar</div>
+                                                </div>
+                                                <div class="product_category">
+                                                  <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                </div>
+                                                <div class="product_weektest">
+                                                    <div>2 Test</div>
+                                                </div>    
+                                            </div>
+                                            <div class="product_row">
+                                                    <div class="product_sub">
+                                                       <div>Chemistry</div>
+                                                    </div>
+                                                    <div class="product_month">
+                                                        <div>Feb, Aug, Sept</div>
+                                                    </div>
+                                                    <div class="product_category">
+                                                      <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                    </div>
+                                                    <div class="product_weektest">
+                                                        <div>2 Test</div>
+                                                    </div>    
+                                            </div>
+                                            <div class="product_row">
+                                                    <div class="product_sub">
+                                                       <div>Mathematics</div>
+                                                    </div>
+                                                    <div class="product_month">
+                                                        <div>Jan, Feb, Mar</div>
+                                                    </div>
+                                                    <div class="product_category">
+                                                      <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                    </div>
+                                                    <div class="product_weektest">
+                                                        <div>2 Test</div>
+                                                    </div>    
+                                            </div>
+                                            <div class="product_row">
+                                                    <div class="product_sub">
+                                                       <div>Biology</div>
+                                                    </div>
+                                                    <div class="product_month">
+                                                        <div>Jan, Feb, Mar</div>
+                                                    </div>
+                                                    <div class="product_category">
+                                                      <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                    </div>
+                                                    <div class="product_weektest">
+                                                        <div>2 Test</div>
+                                                    </div>    
+                                            </div>
+                                            <div class="product_row">
+                                                    <div class="product_sub">
+                                                       <div>Computer Science</div>
+                                                    </div>
+                                                    <div class="product_month">
+                                                        <div>Nov, Dec, Oct</div>
+                                                    </div>
+                                                    <div class="product_category">
+                                                      <div>CBSE solutions,Previous Year solutions,Manjit Kaur Guides etc.</div>
+                                                    </div>
+                                                    <div class="product_weektest">
+                                                        <div>2 Test</div>
+                                                    </div>    
+                                            </div>
+                                            
+                                </div>
+                                <div class="product_row" style="border-left: 1px solid #dddddd;border-right:1px solid #dddddd;">
+                                        <div class="kk_download_plan">
+                                            <button class="kk_plan_btn">Download Plan</button>
+                                        </div>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-2 col-xs-12 no_display">
+                        <div class="kk_bannerplan_wrap" style="margin-top: 89px;">
+                            <img src="./img/bannerplan.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <!-- sec-4 -->
+    <div class="kk_sec_4 kk_bg_color">
+        <div class="container">
+            <div class="row">
+                <div class="kk_sec4_title kk_color_text"> 
+                    <h3>Categories</h3>
+                    <p>List of all the most important categories covered in this pack.All ebooks are latest editions.Your search for Materials will end with goUnlimited Pack.</p>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="kk_box_cat">
+                                    <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/books.png">
+                                    <p class="kk_no_margin"><b>100+</b></p>
+                                    <p class="kk_no_margin">Recommended PDFs</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="kk_box_cat">
+                            <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/mech.png">
+                            <p class="kk_no_margin"><b>38+</b></p>
+                            <p class="kk_no_margin">Mechanical Engg Tests</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="kk_box_cat">
+                            <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/ece.png">
+                            <p class="kk_no_margin"><b>35+</b></p>
+                            <p class="kk_no_margin">Electronics Engg Tests</p>
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="kk_box_cat">
+                            <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/electrical.png">
+                            <p class="kk_no_margin"><b>21+</b></p>
+                            <p class="kk_no_margin">Electrical Engg Tests</p>
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="kk_box_cat">
+                            <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/physics.png">
+                            <p class="kk_no_margin"><b>41+</b></p>
+                            <p class="kk_no_margin">Physics Tests</p>
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="kk_box_cat">
+                            <img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/chemistry.png">
+                            <p class="kk_no_margin"><b>33+</b></p>
+                            <p class="kk_no_margin">Chemistry Tests</p>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="kk_limited_off">
+                    <h3 style="margin-top:38px;padding-bottom: 16px;"><strong>Limited offer! </strong></h3>
+                    <p class="kk_color_text"> Currated content used by more than <br/> 4 Million students.<br/> The resource you will need to accomplish <br/> your examination goals. </p>
+                    <div class="subscription_button"><button class="btn btn-default btn_join kk_cart_nocss">Go Unlimited for ₹399/-</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="kk_card_wrap">
+                            <div class="kk_card_title kk_font_600"><strong>Ncert Solution</strong></div>
+                            <div class="kk_card_cont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis ullamcorper massa. Sed vestibulum, leo id suscipit pUt blandit orci est. Sed eu pulvinar libero, eu lacinia quam. Nullam vulputate libero nec massa tincidunt accumsan.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="kk_card_wrap">
+                                    <div class="kk_card_title kk_font_600"><strong>R D Sharma</strong></div>
+                                    <div class="kk_card_cont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis ullamcorper massa. Sed vestibulum, leo id suscipit pUt blandit orci est. Sed eu pulvinar libero, eu lacinia quam. Nullam vulputate libero nec massa tincidunt accumsan.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="kk_card_wrap">
+                                    <div class="kk_card_title kk_font_600"><strong>Lakhmir Solution</strong></div>
+                                    <div class="kk_card_cont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis ullamcorper massa. Sed vestibulum, leo id suscipit pUt blandit orci est. Sed eu pulvinar libero, eu lacinia quam. Nullam vulputate libero nec massa tincidunt accumsan.</div>
+                        </div>        
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <div class="kk_card_wrap">
+                                    <div class="kk_card_title kk_font_600"><strong>Manjit Kumar Solution</strong></div>
+                                    <div class="kk_card_cont">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis ullamcorper massa. Sed vestibulum, leo id suscipit pUt blandit orci est. Sed eu pulvinar libero, eu lacinia quam. Nullam vulputate libero nec massa tincidunt accumsan.</div>
+                        </div>                
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <!-- sec-5 -->
+    <div class="kk_sec_5 kk_bg_color">
+        <div class="container">
+            <div class="row">
+                    <div class="kk_sec4_title kk_color_text"> 
+                            <h3>Customer Reviews</h3>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="kk_review_wrap" style="border:1px solid #ff8f00;border-radius: 7px;padding: 14px 14px;margin-bottom:10px;">
+                                    <div class="kk_review_pic">
+                                        <img src="./img/test-2.png">
+                                    </div>
+                                    <div class="kk_review_cont">
+                                        <div style="margin-bottom:8px;">Very nice app you can download the whole book instead of clicking pictures of the book you dont have.</div>
+                                        <div class="kk_star_review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div><strong>Paroma Banerjee</strong> <br>class 10th</div>
+                                    </div>
+                                    
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="kk_review_wrap" style="border:1px solid #ff8f00;border-radius: 7px;padding: 14px 14px;">
+                                    <div class="kk_review_pic">
+                                        <img src="./img/test-2.png">
+                                    </div>
+                                    <div class="kk_review_cont">
+                                        <div style="margin-bottom:8px;">Very nice app you can download the whole book instead of clicking pictures of the book you dont have.</div>
+                                        <div class="kk_star_review">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                        <div><strong>Paroma Banerjee</strong> <br>class 10th</div>
+                                    </div>
+                                    
+                            </div>
+                            
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="subscription_button_2 mob-btn-sm clear-mob-btn" style="margin-top: 20px;display: none;">
+                                <button class="btn btn-default btn_join kk_cart_nocss">
+                                    Go Unlimited for ₹399/-
+                                </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slickslider -->
+    <div class="kk_slick kk_bg_color" style="margin-bottom: 12px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 col-md-12">
+                        <div class="slide-block-sl premium-pack">
+                                <a href="javascript:void(0);" class="kk_slider_blocks">
+                                  <div class="slider_title">
+                                                  Gate Electrical <br />Engineering Premium 
+                                  </div>
+                                  <span style="color:#787878;font-weight:600;font-size:14px;text-decoration: line-through;margin-right: 12px;">2999.00</span>
+                                  <span style="color:#ff8f00;font-weight:600;font-size:14px;">₹399.00</span>
+                                </a>
+                                <a href="javascript:void(0);" class="kk_slider_blocks">
+                                  <div class="slider_title">
+                                                  Gate Electrical  <br />Engineering Premium 
+                                  </div>
+                                  <span style="color:#787878;font-weight:600;font-size:14px;text-decoration: line-through;margin-right: 12px;">2999.00</span>
+                                  <span style="color:#ff8f00;font-weight:600;font-size:14px;">₹399.00</span>
+                                </a>
+                                <a href="javascript:void(0);" class="kk_slider_blocks">
+                                  <div class="slider_title">
+                                                  Gate Electrical  <br />Engineering Premium 
+                                  </div>
+                                  <span style="color:#787878;font-weight:600;font-size:14px;text-decoration: line-through;margin-right: 12px;">2999.00</span>
+                                  <span style="color:#ff8f00;font-weight:600;font-size:14px;">₹399.00</span>
+                                </a>
+                                <a href="javascript:void(0);" class="kk_slider_blocks">
+                                  <div class="slider_title">
+                                                  Gate Electrical   <br />Engineering Premium 
+                                  </div>
+                                  <span style="color:#787878;font-weight:600;font-size:14px;text-decoration: line-through;margin-right: 12px;">2999.00</span>
+                                  <span style="color:#ff8f00;font-weight:600;font-size:14px;">₹399.00</span>
+                                </a>
+                                <a href="javascript:void(0);" class="kk_slider_blocks">
+                                  <div class="slider_title">
+                                                  Gate Electrical   <br />Engineering Premium 
+                                  </div>
+                                  <span style="color:#787878;font-weight:600;font-size:14px;text-decoration: line-through;margin-right: 12px;">2999.00</span>
+                                  <span style="color:#ff8f00;font-weight:600;font-size:14px;">₹399.00</span>
+                                </a>
+                              </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--contact-->
+    <div class="kk_contact_sec kk_bg_color">
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <div style="text-align: center;padding:8px;">
+                            <h2>Got a question about benefits?</h2>
+                            <p class="kk_no_margin">Yes it is for<strong>₹199.00</strong>, Need more help on the purchase?</p>
+                            <ul class="kk_contactSection">
+                            <li><a href="tel:+080-42049530" class=""><span style="color: #383838;font-size: 16px;"><img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/telephone.png" style="margin-right: 10px;" width="26" height="26">080-42049530</span></a></li>
+                            <li style="padding-left: 5px;"><a href="https://wa.me/916263970875?text=Hi I have some query regarding " class=""><span style="color: #383838;font-size: 16px;"><img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/whatsapp.png" width="26" height="26" style="margin-right: 10px;">+91-62 63970875</span> </a></li>
+                            <li style="padding-left: 5px;"><a href="mailto:info@kopykitab.com" class=""><span style="color: #383838;font-size: 16px;"><img src="https://content.kopykitab.com/catalog/view/theme/new/img/subscribe/mail.png" style="margin-right: 10px;" width="26" height="26">info@kopykitab.com</span> </a></li>
+                            </ul>
+                            <p style="padding: 18px 0px 0px 0px;">We would love to help you with your queries ( 9:00 AM -7:00 PM Monday-Saturday )</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer>
+            <div class="container">
+            <div class="row">
+            <div class="float-left" style="margin-top: 8px; color:#757575;font-weight: 600;">©&nbsp;2018 DigiBook Technologies (P) Ltd, All Rights Reserved.</div>
+            <div class="float-right kk_subscription footer_links">
+            <span class="hide_text">Connect with us:</span>
+            <a href="https://www.facebook.com/Kopykitab" target="_blank" title="Facebook"><img class="kk_footer_img" src="https://content.kopykitab.com/catalog/view/theme/bt_bookstore/css/kk_grid/img/fb.png" alt="Facebook"></a>
+            <a href="https://in.linkedin.com/company/kopykitab.com" target="_blank" title="LinkedIn"><img class="kk_footer_img" src="https://content.kopykitab.com/catalog/view/theme/bt_bookstore/image/footer/linkdin.png" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/channel/UCVy2STS5LnkTZiYgbhEQ_rw" target="_blank" title="YouTube"><img class="kk_footer_img" src="https://content.kopykitab.com/catalog/view/theme/bt_bookstore/image/footer/youtube.png" alt="YouTube"></a>
+            </div>
+            </div>
+            </div>
+    </footer>
+       
+<script src="https://content.kopykitab.com/catalog/view/theme/new/resource/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer="defer"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script>
+jQuery(function(){
+    jQuery('#showall').click(function(){
+       jQuery('.targetDiv').show();
+         });
+        jQuery('.showSingle').click(function(){
+          jQuery('.targetDiv').hide();
+          jQuery('#div'+$(this).attr('target')).show();
+    });
+});
+</script>
+<script>
+        $(function() {
+      var header = $(".clear-mob-btn");
+      $(window).scroll(function() {
+          var scroll = $(window).scrollTop();
+  
+          if (scroll >=4000) {
+              header.removeClass('clear-mob-btn').addClass("mob-btn-sm");
+          } else {
+              header.removeClass("mob-btn-sm").addClass('clear-mob-btn');
+          }
+      });
+  });
+</script>
+ <script>
+        $( document ).ready(function() {
+        $('.slide-block-sl').slick({
+          dots:false,
+          infinite: true,
+          speed: 300,
+          slidesToShow: 1,
+          variableWidth: true
+        });
+        });
+</script>
+<script>
+$(".fbutton").click(function(e) {
+    $(".fbutton").removeClass("active");
+    $(this).addClass("active");
+});
+</script>
+</body>
+</html>            
